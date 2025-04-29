@@ -1,16 +1,10 @@
-function App() {
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
+import Root from "./Root";
 
+function App() {
   return (
-    <div className="">
-      <h1>Welcome to Our Note Demo</h1>
-      <span>
-        {day}.{month}.{year}
-      </span>
-    </div>
+    <>
+      <Root />
+    </>
   );
 }
 
