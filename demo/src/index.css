@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-blue: rgb(59 130 246);
+  --color-purple: rgb(129 140 248);
+  --color-dark-purple: rgb(79 70 229);
+  --color-green: rgb(74 222 128);
+  --color-dark-green: rgb(22 163 74);
+  --color-yellow: rgb(250 204 21);
+  --color-dark-yellow: rgb(202 138 4);
+  /* Light Theme colors */
+  --color-white: #ffffff;
+  --color-light: #edf4ff;
+  /* Dark theme colors */
+  --color-navy: #15223d;
+  --color-darkBluishGray: #2e334b;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}

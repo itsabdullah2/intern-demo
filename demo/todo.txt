@@ -1,0 +1,21 @@
+// TODO
+  No.1: Create the Top section
+        - Search []
+        - Add button []
+
+  No.2: Create the content section
+        - Title []
+        - Navigation []
+        - Checkbox of showing the completed tasks []
+        - Create the note card UI []
+        - Check as completed functionality []
+        - Editing functionality []
+        - Deleting functionality []
+        - Test the note app []
+        - Save notes in localstorage []
+
+        - The Popup will contain
+          - Note section
+          - Note title
+          - Note description
+          - Note date 'will be by default the current date => Date.now()'
