@@ -3,13 +3,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-blue: rgb(59 130 246);
+  --color-blue: rgb(96 165 250);
+  --color-dark-blue: rgb(59 130 246);
   --color-purple: rgb(129 140 248);
   --color-dark-purple: rgb(79 70 229);
   --color-green: rgb(74 222 128);
   --color-dark-green: rgb(22 163 74);
   --color-yellow: rgb(250 204 21);
   --color-dark-yellow: rgb(202 138 4);
+  --color-gray-accent: #99a1af;
+  --color-gray-text: #6a7282;
   /* Light Theme colors */
   --color-white: #ffffff;
   --color-light: #edf4ff;
@@ -20,4 +23,40 @@
 
 body {
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Out */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
 }
