@@ -7,24 +7,32 @@ import {
   getTxtCategoryColor,
 } from "../utils/getCategoryColor";
 
-interface Note extends NoteItemType {
-  id: string;
-}
-
-const NoteItem = ({ id, category, title, description }: Note) => {
-  const { completedNotesIds, setCompletedNotesIds } = useAppState();
+const NoteItem = ({
+  id,
+  category,
+  title,
+  description,
+  checked,
+  createdAt,
+}: NoteItemType) => {
+  const { toggleNoteChecked, startEditingNote, handleDeleteNote } =
+    useAppState();
 
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
-  const isChecked = completedNotesIds.includes(id);
-
-  const handleToggleComplete = () => {
-    setCompletedNotesIds((prev) =>
-      isChecked ? prev.filter((noteId) => noteId !== id) : [...prev, id]
-    );
+  const handleEdit = () => {
+    const data = {
+      id,
+      category,
+      title,
+      description,
+      checked,
+      createdAt,
+    };
+    startEditingNote(data);
   };
 
   return (
@@ -44,16 +52,18 @@ const NoteItem = ({ id, category, title, description }: Note) => {
         <div className="flex items-center gap-5">
           <input
             type="checkbox"
-            checked={completedNotesIds.includes(id)}
-            onChange={handleToggleComplete}
+            checked={checked}
+            onChange={() => toggleNoteChecked(id)}
           />
           <button
             className={`cursor-pointer text-gray-text hover:text-navy duration-200`}
+            onClick={handleEdit}
           >
             <MdEdit size={22} />
           </button>
           <button
             className={`cursor-pointer text-gray-text hover:text-navy duration-200`}
+            onClick={() => handleDeleteNote(id)}
           >
             <RiDeleteBin6Fill size={22} />
           </button>
@@ -61,8 +71,20 @@ const NoteItem = ({ id, category, title, description }: Note) => {
       </div>
       {/* Info Section */}
       <div className="flex flex-col">
-        <h3 className={`text-navy font-bold text-[1.5rem]`}>{title}</h3>
-        <p className={`text-gray-text font-[400] text-[1rem]`}>{description}</p>
+        <h3
+          className={`text-navy font-bold text-[1.5rem] ${
+            checked ? "line-through" : ""
+          }`}
+        >
+          {title}
+        </h3>
+        <p
+          className={`text-gray-text font-[400] text-[1rem] ${
+            checked ? "line-through" : ""
+          }`}
+        >
+          {description}
+        </p>
       </div>
 
       <div className="absolute bottom-5 right-3 text-gray-accent">
