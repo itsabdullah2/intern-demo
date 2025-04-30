@@ -1,0 +1,89 @@
+No.1: It's a machanize that React uses the compare the old Virtual DOM with new Virtual DOM to see what has changes, then React updates the Real DOM.
+
+No.2: React handles Props drilling through Context API that uses to share data between components and state management tools. The downside of prop drilling is hard to modify, performance issues, code complexity, and lack of flexibility
+
+No.3: Stateful component is a component that manage its own state and controls logic and data by itself it's also called container component. Stateless component is a component doesn't manage its own state, it's also called presentational component.
+
+No.4: No
+
+No.5: No, it returns a new array
+
+No.6: map() returns a new array it used to transform each element in the array it does not mutate the original array.
+      forEach() returns undefined it executes a function on each array element, it does not mutate the array unless you change the array from within the callback function
+
+No.7: Promises in JavaScript is a way to handle asyncrounse operations, it's also produced to avoid the callback hells and to write cleaner, more readable async code
+
+No.8: We can use Object.freeze(obj) but this only works on the top level, if the object has nested objects they are still immutable so we can create function to handle this operation 'using recursion'.
+
+example: function deepFreeze(obj) {
+  Object.freeze(obj)
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] === 'object' && typeof obj[key] !== null) {
+      Object.freeze(obj[key])
+    }
+  })
+}
+
+No.9: By using JSON.parse()
+
+No.10: With Promises we use .catch() at the and of .then(). With async/await we use try...catch block to wrap the code
+
+No.11: Environment variables are key-value pairs this stores the configuration settings outside the code such as:
+  - API key
+  - DB URLs
+  - Configuration
+  We can use it by storing the variables in a file called .env using dotenv package and if we work with vite we don't need that package vite handles it
+
+No.12: Responsive design ensures that the user interface (UI) adjusts and looks great across all screen sizes, from the largest desktops to the smallest mobile devices, by adapting the layout and content dynamically.
+
+How to implement it:
+- Fluid layout with percentage: using %, em, and rem
+- Flexible images: By using max-width of 100% this ensures that image resizing dynamically
+- Media queries: This is specify specific styles in specific screen width
+- Viewport meta tag for mobile devices
+- Tools ans Frameworks for Responsive Design
+  - CSS grid and flexbox
+  - Tailwind and Bootstrap
+
+No.13: By using hasOwnProperty(), in operator, check if it's undefined
+
+No.14: Memoization means that we store the previous results and reuses them when the same inputs are provided, which helps avoid recalculate the same inputs again. Memoization helps improve the performance.
+
+React Example:
+import React, { useState, useMemo } from 'react';
+function ExpensiveComputation() {
+  const [count, setCount] = useState(0);
+
+  // Memoize the result of a function
+  const computedValue = useMemo(() => {
+    console.log('Computing expensive value...');
+    return count * 2;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <p>Computed Value: {computedValue}</p>
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+    </div>
+  );
+}
+
+JavaScript Example:
+function memoize(fn) {
+  let cache = {};
+
+  return function (...args) {
+    const key = JSON.stringify(args); // Convert args to string key!
+
+    if (cache[key]) {
+      console.log("Returning from cache:", key);
+      return cache[key];
+    }
+
+    console.log("Calculating result for:", key);
+    const result = fn(...args);
+    cache[key] = result;
+    return result;
+  };
+}

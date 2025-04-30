@@ -1,0 +1,15 @@
+No.1: 0, 1, 2, 3
+
+No.2: After displayData Call and after 1 second the displayData() will be called
+
+No.3: Guest, Guest. But if I'm using TypeScript I'll face I type error in the second one
+
+No.4: undefined
+
+No.5: Reference error: congo.minimumRainFall is not a function
+
+No.6: bear, bear - tiger, sheep
+
+No.7: Cannot read properties of undefined (reading: sound)
+
+No.8: swim
