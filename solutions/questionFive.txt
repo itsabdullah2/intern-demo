@@ -1,0 +1,76 @@
+No.1:
+function fetchData(url) {
+  new Promise((resolve, reject) => {
+    fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Something went wrong!")
+      }
+
+      return response.json()
+    })
+    .then((data) => resolve(data))
+    .catch(error => reject(error))
+  })
+}
+
+No.2:
+function power(base, exponent) {
+  if (exponent === 0) {
+    return 1
+  }
+
+  return base * exponent(base, exponent - 1)
+}
+
+No.3:
+function findSecondLowestAndSecondGreatest(arr) {
+  // Check of the arr have a least two numbers
+  if (arr.length < 2) {
+    return 'The array should have at least two numbers'
+  }
+
+  // Remove duplicates and sort the array
+  let uniqueArr = [...new Set(arr)].sort((a, b) => a - b)
+
+  // Find the second lowest and second greatest
+  const secondLowest = uniqueArr[1]
+  const secondGreatest = uniqueArr[uniqueArr.length - 2]
+
+  return {
+    secondLowest,
+    secondGreatest
+  }
+}
+
+No.4:
+
+No.5:
+class BackAccount{
+  constructor(accountNumber, initialBalance = 0) {
+    this.accountNumber = accountNumber
+    this.balance = initialBalance
+  }
+
+  // Method to deposit
+  deposit(amount) {
+    if (amount > 0) {
+      this.balance = amount
+    } else {
+      console.log("Deposit amount must be greater than zero")
+    }
+  }
+
+  // Method to withdraw
+  withdraw(amount) {
+    if (amount > 0 && amount < this.balance) {
+      this.balance -= mount
+    } else {
+      console.log("invalid withdraw amount or insufficient balance")
+    }
+  }
+}
+
+const account1 = new BackAccount("951753", 1000)
+account1.deposit(500)
+account1.withdraw(1000)

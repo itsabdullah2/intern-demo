@@ -1,0 +1,109 @@
+No.1: The issue the array is a new instance the component renders. So when we pass it to dependency array React sees 'array numbers' as changed every time even if the content haven't changed, because the reference is different. So the solution is moving the array inside useMemo, like this 'const doubleNumbers = useMemo(() => {const numbers = [...]}, [])'
+
+No.2: The pure function is a function that always returns the same output for the same input
+example: function add(a, b) {
+  return a + b
+}
+
+The Impure function is a function that returns different outputs for the same input
+example: function greeting(message) {
+  return message
+}
+
+No.3: const Dropdown = () => {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const options = [
+    { name: "YouTube"},
+    { name: "Facebook"},
+    { name: "X"},
+    { name: "Instagram"},
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleDropdownMenu = () => {
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <div className="relative w-32 lg:w-40 xl:w-48" ref={dropdownRef}>
+      <button
+        onClick={handleDropdownMenu}
+      >
+        <LuChevronDown
+          className={`ml-2 transition-transform ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </button>
+
+      {open && (
+        <ul>
+          {options.map((option) => (
+            <li
+              key={option.name}
+            >
+              {option.icon}
+              {option.name}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+No.4: 
+import { Component } from "react";
+
+class Timer extends Component {
+  constructor(props) {
+    super(props),
+      (this.state = {
+        seconds: 0,
+      });
+  }
+
+  // Runs once after the component is mounted to the dom => Such as useEffect in functional components
+  componentDidMount() {
+    console.log("component mounted");
+    this.interval = setInterval(() => {
+      this.setState((prevState) => ({
+        seconds: prevState.seconds + 1,
+      }));
+    }, 1000);
+  }
+
+  // Runs after every update (state or prop)
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.seconds !== this.state.seconds) {
+      console.log(`Updated: ${this.state.seconds}`);
+    }
+  }
+
+  // Runs just after the component is removed from the DOM
+  componentWillUnmount() {
+    console.log("Component Will Unmount");
+    clearInterval(this.interval);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Timer: {this.state.seconds}</h1>
+      </div>
+    );
+  }
+}
+
+No.5: 5, result is not a function

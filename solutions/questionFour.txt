@@ -1,0 +1,18 @@
+No.1:
+- Public constructor: is a constructor that can be used to create an instance of a class anywhere in the code. It is accessible by any code that has access to the class.
+- Private constructor: is a constructor that cannot be accessed directly it requires a controlled method
+
+No.2:
+- Encapsulation => keeping the variables private and I access these variables through controlled methods
+- Abstraction => only telling what the user needs to know not how it works
+
+No.3: 
+
+No.4: We use Singleton Pattern when we want to make sure that only one instance of a class is created
+
+No.5: It behaves differently base on the input type and the compiler figures this out before the code runs. Static Polymorphism is in the static typed language like TypeScript.
+
+No.6: 
+  a: False: In OOP static methods belong to the class, not to an instance. So when you define a static method, it's tied to the class itself
+  b: True: Abstraction is the process of hiding the internal implementation details and showing only the essential features of an object
+  e: True
