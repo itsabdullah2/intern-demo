@@ -1,4 +1,22 @@
-## Visit app: https://intern-demo.vercel.app/
+## Notes App – Project Overview
+- Notes App is a responsive and user-friendly note-taking application that allows users to manage their notes efficiently. It offers a clean interface and essential productivity features to help users stay organized.
+  
+## Features
+- Add / Update / Delete Notes – Full CRUD operations for notes.
+- Mark as Done – Check off completed notes.
+- Filter Checked Notes – Toggle to show only notes marked as done.
+- All notes are saved in localStorage.
+
+## Tech Stack
+- React
+- TypeScript
+- TailwindCSS
+- Context API
+
+## Responsiveness
+- The app is fully responsive and works seamlessly across desktops, tablets, and mobile devices.
+
+### Visit app: https://intern-demo.vercel.app/
 
 # React + TypeScript + Vite
 
